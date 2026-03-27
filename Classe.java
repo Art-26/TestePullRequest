@@ -74,5 +74,22 @@ class Livro {
         exemplares.add(new Exemplar(codigo));
     }
 }
+//------------'zzzxxxzzzxzxzzzz--------
+[span_20](start_span)// Serviço focado apenas em Empréstimos (SRP)[span_20](end_span)
+class BibliotecaService {
+    public void registrarEmprestimo(Usuario usuario, Exemplar exemplar) {
+        if (exemplar.getStatus().equals("disponível")) {
+            exemplar.setStatus("emprestado");
+            System.out.println("Empréstimo realizado com sucesso!");
+        }
+    }
+}
 
+[span_21](start_span)// Serviço focado apenas em Multas (SRP)[span_21](end_span)
+class MultaService {
+    public void processarMulta(Usuario usuario, int dias) {
+        double valor = usuario.calcularMulta(dias);
+        System.out.println("Multa para " + usuario.nome + ": R$ " + valor);
+    }
+}
 
